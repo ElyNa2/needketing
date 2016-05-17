@@ -1,2 +1,62 @@
  @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+ @import "vendors/jquery-ui";
+
+ @import "plugins/plugins";
+
+@import "base/reset";
+@import "base/typography";
+
+@import "components/buttons";
+@import "components/carousel";
+@import "components/cover";
+@import "components/dropdown";
+@import "components/navigation";
+
+
+
+@import "helpers/functions";
+@import "helpers/helpers";
+@import "helpers/mixins";
+@import "helpers/variables";
+
+
+
+@import "layout/footer";
+@import "layout/forms";
+@import "layout/grid";
+@import "layout/header";
+@import "layout/sidebar";
+
+
+
+@import "pages/contact";
+@import "pages/home";
+ @import "pages/nkt-client-dashboard";
+
+
+ @import "themes/admin";
+ @import "themes/theme";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

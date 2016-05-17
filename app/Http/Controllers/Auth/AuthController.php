@@ -28,7 +28,17 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+
+    /*protected function authenticated( $user)
+    {
+        if($user->role_id == 1) {
+            return redirect('/dashboard');
+        }
+
+        return redirect('/dashboard');
+    }*/
+
+    protected $redirectTo = 'users/dashboard';
 
     /**
      * Create a new authentication controller instance.
@@ -39,7 +49,6 @@ class AuthController extends Controller
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -69,4 +78,15 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    /**
+     * Welcome View
+     *
+     * @return mixed
+     */
+    public function welcome()
+    {
+        return view('auth.welcome');
+    }
+
+
 }

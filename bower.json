@@ -1,0 +1,6 @@
+{
+  "name": "needketing",
+  "dependencies": {
+    "bootstrap": "~3.2.0"
+  }
+}
