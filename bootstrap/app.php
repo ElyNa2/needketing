@@ -41,6 +41,10 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+$app->singleton(
+    Illuminate\Foundation\Bootstrap\ConfigureLogging::class,
+    App\Bootstrap\ConfigureLogging::class
+);
 /*
 |--------------------------------------------------------------------------
 | Return The Application

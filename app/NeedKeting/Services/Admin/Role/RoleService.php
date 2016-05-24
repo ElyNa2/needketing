@@ -1,8 +1,8 @@
 <?php
 
-//namespace App\NeedKeting\Auth;
+namespace App\NeedKeting\Services\Admin\Role;
 
-//use App\NeedKeting\Repositories\Role\RoleRepository;
+use App\NeedKeting\Repositories\Admin\Role\RoleRepository;
 
 class RoleService
 {

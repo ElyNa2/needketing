@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Welcome To Needketing</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
         <div class="register-sigin-page">
             <div class="container">
+                <div class="row nkt-logo-image text-center">
+                    <img src=" {{ asset('assets/images/needketinglogo.png') }}" alt="Needketing">
+                </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="nekt-welcome">

@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TagTableSeeder::class);
         $this->call(PostTableSeeder::class);
         $this->call(PostTagTableSeeder::class);
+        $this->call(CommentTableSeeder::class);
 
         // supposed to only apply to a single connection and reset it's self
         // but I like to explicitly undo what I've done for clarity

@@ -21,7 +21,7 @@ class PostTableSeeder extends Seeder
                 'image' => 'http://localhost:8000/assets/images/posts/radio-158399_640.png',
                 'location' => 'Kathmandu, Nepal',
                 'user_id' => 1,
-                'published_at' => '2017-03-01'
+                'published_at' => '2016-03-01'
             ],
             [
                 'content'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -30,16 +30,16 @@ class PostTableSeeder extends Seeder
                 'image' => 'http://localhost:8000/assets/images/posts/dragon-head-tatoo_91-6564.jpg',
                 'location' => 'Bhaktapur, Nepal',
                 'user_id' => 2,
-                'published_at' => '2017-01-01'
+                'published_at' => '2016-01-01'
             ],
             [
                 'content'=>'Nam condimentum rhoncus condimentum. Proin cursus 
                             porttitor mattis. Curabitur tortor neque, 
                             aliquet in fringilla in, viverra id augue. Integer interdum ',
-                'image' => 'http://localhost:8000/assets/images/posts/laptop-158399_640.png',
+                'image' => 'http://localhost:8000/assets/images/posts/laptop-154091_640.png',
                 'location' => 'Lalitpur, Nepal',
                 'user_id' => 3,
-                'published_at' => '2017-02-01'
+                'published_at' => '2016-02-01'
             ],
         ]);
     }

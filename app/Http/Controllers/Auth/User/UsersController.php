@@ -1,14 +1,37 @@
 <?php
 
-namespace App\Http\Controllers\Users\Post;
+namespace App\Http\Controllers\Auth\User;
 
+use App\NeedKeting\Services\User\Tag\TagsService;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PostsController extends Controller
+class UsersController extends Controller
 {
+    /**
+     * @var
+     */
+    public $users;
+    /**
+     * @var
+     */
+    public $posts;
+
+    /**
+     * @var
+     */
+    public $tags;
+
+    /**
+     * UsersController constructor.
+     */
+    public function __construct(TagsService $tags)
+    {
+        $this->tags = $tags;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +39,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        $tags = $this->tags->all();
+        return view('users.users.index',compact('tags'));
     }
 
     /**

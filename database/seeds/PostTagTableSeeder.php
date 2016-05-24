@@ -11,9 +11,9 @@ class PostTagTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('posts_tags')->truncate();
+        DB::table('post_tag')->truncate();
         
-        DB::table('posts_tags')->insert([
+        DB::table('post_tag')->insert([
            [
               'post_id' => 1,
               'tag_id' => 1,
@@ -24,7 +24,11 @@ class PostTagTableSeeder extends Seeder
            ],
            [
               'post_id' => 2,
-              'tag_id' => 1,
+              'tag_id' => 3,
+           ],
+            [
+              'post_id' => 3,
+              'tag_id' => 3,
            ],
         ]);
     }

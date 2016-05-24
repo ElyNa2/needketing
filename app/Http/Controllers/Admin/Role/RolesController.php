@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\NeedKeting\Models\Role;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\NeedKeting\Services\Admin\Role\RoleService;
 
 class RolesController extends Controller
 {
@@ -19,7 +20,7 @@ class RolesController extends Controller
      * RolesController constructor.
      * @param Role $roles
      */
-    public function __construct(Role $roles)
+    public function __construct(RoleService $roles)
     {
         $this->roles = $roles;
     }

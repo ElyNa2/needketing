@@ -1,22 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Users\Dashboard;
+namespace App\Http\Controllers\User\Post;
 
+use App\Http\Requests\User\Post\StorePostRequest;
+use App\NeedKeting\Services\User\Post\PostsService;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class PostsController extends Controller
 {
     /**
-     * Securing the Controller
-     * 
-     * DashboardController constructor.
+     * @var PostsService
      */
-    public function __construct()
+    public $posts;
+
+    /**
+     * PostsController constructor.
+     * @param PostsService $posts
+     */
+    public function __construct(PostsService $posts)
     {
-        $this->middleware('auth');
+        $this->posts = $posts;
     }
 
     /**
@@ -26,7 +31,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('users.dashboard.index');
+        
     }
 
     /**
@@ -45,9 +50,10 @@ class DashboardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        //
+        return $this->posts->create($request);
+        
     }
 
     /**
@@ -93,5 +99,36 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    /**
+     * Returning all data
+     *
+     * @return mixed
+     */
+    public function getAll()
+    {
+        return $this->posts->all();
+    }
+
+    /**
+     * Get all the tags related to one post
+     *
+     * @return mixed
+     */
+    public function getAllTags()
+    {
+        return $this->posts->allTags();
+    }
+
+    /**
+     * return all posts of the authenticate user
+     * 
+     * @return mixed
+     */
+    public function getAllPostOfUser()
+    {
+        return $this->posts->allPostOfUser();
     }
 }

@@ -15,6 +15,14 @@ define('LARAVEL_START', microtime(true));
 */
 
 require __DIR__.'/../vendor/autoload.php';
+/*use Monolog\Logger;
+use Monolog\Handler\LogglyHandler;
+
+$log = new Logger('needketing');
+$log->pushHandler(new LogglyHandler('TOKEN/tag/monolog', Logger::INFO));
+
+$log->addWarning('test logs to loggly');*/
+
 
 /*
 |--------------------------------------------------------------------------

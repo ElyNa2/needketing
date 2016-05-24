@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -28,26 +28,23 @@ class AuthController extends Controller
      *
      * @var string
      */
+    
 
-    /*protected function authenticated( $user)
-    {
-        if($user->role_id == 1) {
-            return redirect('/dashboard');
-        }
-
-        return redirect('/dashboard');
-    }*/
-
-    protected $redirectTo = 'users/dashboard';
+    protected $redirectTo = '/';
+    /**
+     * @var Guard
+     */
+    protected $auth;
 
     /**
      * Create a new authentication controller instance.
      *
-     * @return void
+     * @param Guard $auth
      */
-    public function __construct()
+    public function __construct(Guard $auth)
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->auth = $auth;
     }
     /**
      * Get a validator for an incoming registration request.
@@ -77,15 +74,6 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-    }
-    /**
-     * Welcome View
-     *
-     * @return mixed
-     */
-    public function welcome()
-    {
-        return view('auth.welcome');
     }
 
 
