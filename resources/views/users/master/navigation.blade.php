@@ -29,10 +29,10 @@
             <div class="dropdown">
                 <img data-toggle="dropdown" src="{{ Auth::user()->image }}" style="height:60px;width: 60px;border-radius: 60px" />
                 <ul class="dropdown-menu text-center">
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="{{ url('user/timeline') }}">View Profile</a></li>
+                    <li><a href="{{ url('user/profile/account') }}">Settings</a></li>
+                    <li><a href="{{ url('user/profile') }}">View Profile</a></li>
                     <li><a href="#">Manage Subscription</a></li>
-                    <li><a href="{{ URL::to('logout') }}">Logout</a></li>
+                    <li><a href="{{ url('logout') }}">Logout</a></li>
                 </ul>
             </div>
         </div>

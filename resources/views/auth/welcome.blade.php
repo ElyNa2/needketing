@@ -3,28 +3,29 @@
     <head>
         <title>Welcome To Needketing</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{asset('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}" />
     </head>
     <body>
         <div class="register-sigin-page">
             <div class="container">
                 <div class="row nkt-logo-image text-center">
-                    <img src=" {{ asset('assets/images/needketinglogo.png') }}" alt="Needketing">
+                    <img src=" {{ asset('assets/images/needketinglogo.png') }}" alt="Needketing" >
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="nekt-welcome">
-                            <h3>Welcome To Needketing</h3>
+                            <h2>Welcome To Needketing</h2>
                             <p>Our Objective is to develop a solution which bring service provider and customer closer.
                                 Join Needketing It's Free.
                             </p>
                         </div>
                         <div class="nekt-brand-image">
-                            <img src="{{ asset('assets/images/deal1.png') }}" alt="Needketing">
+                            <img src="{{ asset('assets/images/deal1.png') }}" alt="Needketing" class="img-responsive hide-xs">
                         </div>
                     </div>
                     <div class="col-lg-4 col-lg-offset-2">
                         <div class="form-section login">
-                            <h2>Login</h2>
+                            <h4>Login</h4>
                             <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                                 {!! csrf_field() !!}
 
@@ -55,34 +56,28 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-4">
+                                    <div class="col-md-12">
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="remember"> Remember Me
                                             </label>
+                                            <a class="btn btn-link pull-right" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-btn fa-sign-in"></i>Login
-                                        </button>
-
-                                        <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                                    </div>
-                                </div>
+                                <button type="submit" class="btn btn-login">
+                                    Login
+                                </button>
                             </form>
                         </div>
-                        <div class="form-section oauth">
-                            <p>Sign in with</p>
-                            <span class="glyphicon glyphicon-facebook"></span>
-                            <span class="glyphicon glyphicon-googleplus"></span>
-                            <span class="glyphicon glyphicon-twitter"></span>
+                        <div class="form-section oauth text-center">
+                            <h4>Sign in with</h4>
+                            <a href=""><i class="ion ion-social-facebook"></i></a>
+                            <a href=""><i class="ion ion-social-googleplus"></i></a>
+                            <a href=""><i class="ion ion-social-twitter"></i></a>
                         </div>
                         <div class="form-section signup">
-                            <h2>Not Account Yet ? Sign up Here</h2>
+                            <h4>Not Account Yet ? Sign up Here</h4>
                             <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                                 {!! csrf_field() !!}
 
@@ -138,27 +133,23 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-btn fa-user"></i>Register
-                                        </button>
-                                    </div>
-                                </div>
+                                <button type="submit" class="btn btn-signup">
+                                    Sign Up
+                                </button>
                             </form>
-                            <p>By signing up, you agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a> including
+                            <p>By signing up, you agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a>
                             </p>
                         </div>
                     </div><!-- col-lg-6 -->
                 </div><!-- //row -->
 
                 <div class="row">
-                    <ul>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Terms</a></li>
-                        <li><a href="">Privacy</a></li>
-                        <li><a href="">@2016 needketing</a></li>
-                    </ul>
+                    <p class="text-center">
+                        <a href="">About</a> |
+                        <a href="">Terms</a> |
+                        <a href="">Privacy</a> |
+                        &copy 2016 needketing
+                    </p>
                 </div>
             </div><!-- //container -->
         </div><!-- //register-signin-page -->

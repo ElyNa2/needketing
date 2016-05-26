@@ -1,0 +1,73 @@
+.register-sigin-page{
+  background-image: url("http://localhost:8000/assets/images/needketing.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding:20px 0 20px 0;
+  font-family:  "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  color:#f5f5f5;
+  a{
+    color:#ababab;
+    &:after{
+      color: #f5f5f5;
+    }
+  }
+  a:hover{
+    color:#f5f5f5;
+  }
+  .form-section{
+    padding-bottom: 30px;
+
+    .form-control{
+      background-color: rgba(0,0,0,0);
+      border-radius: 0;
+    }
+    .btn-login, .btn-signup{
+      @include border-bottom-radius(0);
+      @include border-left-radius(0);
+      @include border-right-radius(0);
+      @include border-top-radius(0);
+      background-color: orangered;
+      width:100%;
+      color: #f5f5f5;
+    }
+
+    .btn-signup{
+      margin-bottom:10px;
+    }
+  }
+  .oauth{
+    .ion{
+      font-size: 20px;
+      margin:0 10px 0 10px;
+      padding: 10px;
+      border-radius: 50%;
+      height: 50px;
+      width:50px;
+      color:#f5f5f5;
+    }
+    .ion:hover{
+      opacity: 0.8;
+    }
+    .ion-social-twitter{
+      border: 2px solid #00aced;
+
+    }
+    .ion-social-twitter:hover{
+      background-color: #00aced;
+    }
+    .ion-social-facebook{
+      border: 2px solid #3b5998;
+    }
+    .ion-social-facebook:hover{
+      background-color: #3b5998;
+    }
+    .ion-social-googleplus{
+      border: 2px solid #dd4b39;
+    }
+    .ion-social-googleplus:hover{
+      background-color: #dd4b39;
+    }
+  }
+
+}

@@ -9,8 +9,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('all/posts/user',['as'=>'all.posts.user','uses'=>'User\Post\PostsController@getAllPostOfUser']);
     Route::get('all/tags',['as'=>'all.tags','uses'=>'User\Tag\TagsController@getAll']);
     Route::get('all/comments',['as'=>'all.comments','uses'=>'User\Comment\CommentsController@getAll']);
-
-
+    Route::get('auth/user',['as'=>'auth.user','uses'=>'Auth\User\UsersController@getAuth']);
 
     //Route::auth();
     Route::post('login', 'Auth\AuthController@login');
@@ -30,8 +29,9 @@ Route::group(['middleware' => ['web']], function () {
 
 
     Route::resource('users/posts','User\Post\PostsController');
-    
-    Route::get('user/timeline',['as'=>'user.timeline','uses'=>'Auth\User\UsersController@index']);
-    
     Route::resource('users/comments','User\Comment\CommentsController');
+
+    Route::get('user/profile/account',['as'=>'user.profile.account','uses'=>'Auth\User\UsersController@accountSetting']);
+    Route::resource('user/profile','Auth\User\UsersController');
+
 });

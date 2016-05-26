@@ -10,11 +10,16 @@ class UsersService
     /**
      * @var PostsRepository
      */
-    public $posts;
+    private $posts;
     /**
      * @var UsersRepository
      */
-    public $users;
+    private $users;
+
+    /**
+     * @var
+     */
+    private $auth;
 
     /**
      * UsersService constructor.
@@ -46,4 +51,18 @@ class UsersService
     {
         return $this->posts->allPostOfUser();
     }
+
+    /**
+     * @return mixed
+     */
+    public function auth()
+    {
+        return $this->users->auth();
+    }
+    
+    public function update($request,$id)
+    {
+        return $this->users->update($request,$id);
+    }
+    
 }

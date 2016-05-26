@@ -24,7 +24,7 @@ class StorePostRequest extends Request
     public function rules()
     {
         return [
-            'content' => 'required|min:10 '
+            'content' => 'required'
         ];
     }
 }

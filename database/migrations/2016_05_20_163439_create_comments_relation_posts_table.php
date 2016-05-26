@@ -32,6 +32,11 @@ class CreateCommentsRelationPostsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('comments');
+        Schema::table('comments', function (Blueprint $table) {
+            
+            $table->dropForeign('comments_post_id_foreign');
+
+            $table->dropForeign('comments_user_id_foreign');
+        });
     }
 }

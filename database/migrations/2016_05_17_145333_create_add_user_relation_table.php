@@ -27,6 +27,8 @@ class CreateAddUserRelationTable extends Migration
      */
     public function down()
     {
-        Schema::drop('posts');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign('posts_user_id_foreign');
+        });
     }
 }

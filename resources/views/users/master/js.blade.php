@@ -25,14 +25,6 @@
         $http.get('/all/posts').success(function (response) {
            $scope.posts = response;
         });
-/*
-        $scope.addPost = function(){
-            var post = {
-               content:$scope.content
-            };
-            $scope.posts.push(post);
-            $http.post('/users/posts',post);
-        };*/
     });
     needKeting.controller('UserPostsController',function ($scope,$http) {
         $http.get('/all/posts/user').success(function (response) {
@@ -70,5 +62,10 @@
             console.log(comment);
         };
 */
+    });
+    needKeting.controller('AuthController',function ($scope,$http) {
+        $http.get('/auth/user').success(function (response) {
+            $scope.user = response;
+        });
     });
 </script>
