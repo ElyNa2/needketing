@@ -65,6 +65,6 @@ class UsersRepository
         }
         $user->fill($input)->save();
 
-        return redirect(route('user.profile.edit',$user->id))->with('status','User Records are Updated Successfully');
+        return redirect()->back()->with('status','User Records are Updated Successfully');
     }
 }

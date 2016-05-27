@@ -97,7 +97,12 @@
                     <div class="nkt-post-actions">
                         <button class="btn btn-primary" ng-click="showme=true">Comment</button>
                         <button class="btn btn-primary">Share</button>
-                        <i class="ion ion-android-more-horizontal"></i>
+                        <span class="more-option" ng-click="more-option=true">
+                            <i class="ion ion-android-more-horizontal"></i>
+                        </span>
+                    </div>
+                    <div class="list-group" ng-show="more-option=true">
+                        <a href="" class="list-group-item">Hello</a>
                     </div>
                 </div>
                 <div class="nkt-comment-list" ng-show="showme">

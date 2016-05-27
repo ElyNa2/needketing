@@ -5761,6 +5761,17 @@ body {
 .nkt-post-list {
   background-color: #f5f5f5; }
 
+.more-option {
+  background-color: transparent; }
+  .more-option .ion {
+    font-size: 20px;
+    color: green;
+    padding: 10px;
+    border: 1px solid #ccc;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px; }
+
 .dropdown-menu {
   left: 100px; }
 
