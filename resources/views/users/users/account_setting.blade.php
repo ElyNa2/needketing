@@ -65,31 +65,33 @@
                         <h3>Password</h3>
                         <p>Edit Your Password</p>
                         <hr>
-                        {!! Form::model($user,['route'=>['user.profile.update',$user->id],'method'=>'put']) !!}
+                        {!! Form::model($user,['route'=>['user.profile.updatePassword',$user->id],'method'=>'put']) !!}
 
                         <div class="form-group">
                             <div class="col-lg-3">
-                                {!! Form::label('password') !!}
+                                {!! Form::label('old_password') !!}
                             </div>
                             <div class="col-lg-9">
-                                <input name="password" type="password" value="" id="password" class="form-control">
+                                {!! Form::password('old_password', ['class'=>'form-control']) !!}
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-lg-4">
-                                {!! Form::label('new_password') !!}
+                                {!! Form::label('password') !!}
                             </div>
                             <div class="col-lg-8">
-                                <input name="new_password" type="password" value="" id="password" class="form-control">
+                                {!! Form::password('password', ['class'=>'form-control']) !!}
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="col-lg-3">
-                                {!! Form::label('confirm') !!}
+                                {!! Form::label('password_confirmation') !!}
                             </div>
+
                             <div class="col-lg-9">
-                                <input name="confirm" type="password" value="" id="confirm" class="form-control">
+                                {!! Form::password('password_confirmation', ['class'=>'form-control']) !!}
                             </div>
                         </div>
 

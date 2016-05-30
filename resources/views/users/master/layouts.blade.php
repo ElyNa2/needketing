@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html ng-app="needKeting">
+
 <head>
+
     <title>
+
         @yield('title') | Needketing
+
     </title>
+
     @include('users.master.css')
+
 </head>
+
 <body>
 
-
     @include('users.master.navigation')
-
     @if($errors->any())
         <div class="alert alert-danger">
-            <strong>We found Some errors !</strong>
             <ul>
                 @foreach($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -21,14 +25,20 @@
             </ul>
         </div>
     @endif
-
     @if($status)
+
         <div class="alert alert-info">
+
             {{ $status }}
+
         </div>
+
     @endif
+
     <div class="nkt-client-dashboard" ng-app="needKeting">
+
         <div class="container">
+
             <div class="row">
                 <div class="col-lg-3 text-center ">
                     @yield('user_widget')

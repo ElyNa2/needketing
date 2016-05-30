@@ -1,7 +1,11 @@
 <?php
 
-Route::group(['middleware' => ['web']], function () {
+use Illuminate\Http\Request;
 
+Route::group(['middleware' => ['web']], function () {
+    
+    Route::get('/redirect/{provider}', 'Auth\SocialAuthController@redirect');
+    Route::get('/callback/{provider}', 'Auth\SocialAuthController@callback');
     /*
      * API Data for Angular Js and Mobile Application
      */
@@ -11,7 +15,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('all/comments',['as'=>'all.comments','uses'=>'User\Comment\CommentsController@getAll']);
     Route::get('auth/user',['as'=>'auth.user','uses'=>'Auth\User\UsersController@getAuth']);
 
-    //Route::auth();
     Route::post('login', 'Auth\AuthController@login');
     Route::get('logout', 'Auth\AuthController@logout');
     Route::post('register', 'Auth\AuthController@register');
@@ -23,15 +26,20 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'home',
         'uses' => 'User\Dashboard\DashboardController@index'
     ));
-
-    Route::get('admin/roles/{roles}/confirm',['as'=>'admin.roles.confirm','uses'=>'Admin\Role\RolesController@confirm']);
-    Route::resource('admin/roles','Admin\Role\RolesController');
-
-
+    
     Route::resource('users/posts','User\Post\PostsController');
     Route::resource('users/comments','User\Comment\CommentsController');
 
+    Route::put('user/profile/password/{user}',['as'=>'user.profile.updatePassword' ,'uses'=>'Auth\User\UsersController@updatePassword']);
     Route::get('user/profile/account',['as'=>'user.profile.account','uses'=>'Auth\User\UsersController@accountSetting']);
     Route::resource('user/profile','Auth\User\UsersController');
+
+    Route::get('admin/signin',['as'=>'admin.signin','uses'=>'Admin\User\UsersController@index']);
+
+    /*Route::group(['middleware' => ['admin']], function () {*/
+
+        Route::get('admin/roles/{roles}/confirm',['as'=>'admin.roles.confirm','uses'=>'Admin\Role\RolesController@confirm']);
+        Route::resource('admin/roles','Admin\Role\RolesController');
+    /*});*/
 
 });

@@ -4,6 +4,7 @@
         <title>Welcome To Needketing</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{asset('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}" />
+        <link rel='shortcut icon' href='{{ asset('assets/images/favicon.png') }}' type='image/x-icon' />
     </head>
     <body>
         <div class="register-sigin-page">
@@ -42,6 +43,7 @@
                                     </div>
                                 </div>
 
+
                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
                                     <div class="col-md-12">
@@ -72,9 +74,9 @@
                         </div>
                         <div class="form-section oauth text-center">
                             <h4>Sign in with</h4>
-                            <a href=""><i class="ion ion-social-facebook"></i></a>
-                            <a href=""><i class="ion ion-social-googleplus"></i></a>
-                            <a href=""><i class="ion ion-social-twitter"></i></a>
+                            <a href="{{ url('redirect/facebook') }}"><i class="ion ion-social-facebook"></i></a>
+                            <a href="{{ url('redirect/google') }}"><i class="ion ion-social-googleplus"></i></a>
+                            <a href="{{ url('redirect/twitter') }}"><i class="ion ion-social-twitter"></i></a>
                         </div>
                         <div class="form-section signup">
                             <h4>Not Account Yet ? Sign up Here</h4>
@@ -93,6 +95,21 @@
                                         @endif
                                     </div>
                                 </div>
+
+                                <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" name="username" placeholder="Username " value="{{ old('username') }}">
+
+                                        @if ($errors->has('username'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <input type="hidden" value="1" name="role_id" id="role_id" />
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 

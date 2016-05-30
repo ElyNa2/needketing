@@ -70,6 +70,20 @@ class UserTableSeeder extends Seeder
                 'tags_id' => 1,
                 'password'=>bcrypt('password')
             ],
+            [
+                'name' => 'Madhu Sudhan Subedi',
+                'email' => 'madhusudhansubedi@acd.edu.np',
+                'username' => 'madhusudhansubedi',
+                'image' => '',
+                'phone' => '',
+                'website' => 'madhusudhansubedi.azurewebsites.net',
+                'description' => '',
+                'dob' => '1994-01-05',
+                'country' => 'Nepal',
+                'role_id' => 2,
+                'tags_id' => 1,
+                'password'=>bcrypt('password')
+            ],
         ]);
     }
 }

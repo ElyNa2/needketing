@@ -39,6 +39,9 @@ class Comment extends Model
         return $this->user()->first()->name;
     }
 
+    /**
+     * @return mixed
+     */
     public function getUserImageAttribute()
     {
         return $this->user()->first()->image;

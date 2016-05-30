@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -44,7 +45,7 @@ class AuthController extends Controller
     public function __construct(Guard $auth)
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
-        $this->auth = $auth;
+       /* $this->auth = $auth;*/
     }
     /**
      * Get a validator for an incoming registration request.
@@ -56,6 +57,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
+            'username' => 'required|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -71,9 +73,12 @@ class AuthController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'username' => $data['username'],
+            'role_id' => $data['role_id'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        
     }
 
 

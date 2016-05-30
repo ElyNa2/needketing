@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -12,7 +13,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','username','phone','description','dob','country','role_id','tags_id','image'
+        'name',
+        'email',
+        'password',
+        'username',
+        'phone',
+        'description',
+        'dob',
+        'country',
+        'role_id',
+        'tags_id',
+        'image'
     ];
 
     /**
@@ -58,5 +69,22 @@ class User extends Authenticatable
     public function tags()
     {
         return $this->belongsToMany('App\NeedKeting\Models\Tag');
+    }
+
+    /**
+     * @param $password
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function isAdmin()
+    {
+        if(Auth::id() == 2)
+        {
+            return true;
+        }
+        return false;
     }
 }

@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Needketing\Repositories\Auth\User;
+namespace App\NeedKeting\Repositories\Auth\User;
 
-use App\Needketing\Models\Post;
+use App\NeedKeting\Models\Post;
 use App\User;
 use Illuminate\Contracts\Auth\Guard;
 
 class UsersRepository
 {
+    /**
+     * @var User
+     */
     private $users;
 
     /**
@@ -48,23 +51,43 @@ class UsersRepository
     {
         return $this->auth->user();
     }
-    
-    public function update($request,$id)
+
+    /**
+     * @param $request
+     * @param $id
+     * @return mixed
+     */
+    public function update($request, $id)
     {
         $user = $this->users->findOrFail($id);
+
         $input = $request->all();
+
         if($request->hasFile('image'))
         {
-            $random = rand(100,99999);
-            $imageName = 'nkt-user-image'.$random. '.' .
-                $request->file('image')->getClientOriginalExtension();
-            $fullPath = 'http://localhost:8000/assets/images/users/'.$imageName;
-            $request->file('image')->move(
-                public_path() . '/assets/images/users/', $imageName);
-            $input['image'] = $fullPath;
+            $image = $request->file('image');
+
+            $name = time().$image->getClientOriginalName();
+
+            $image->move(public_path() . '/assets/images/users/', $name);
+
+            $input['image'] = 'http://localhost:8000/assets/images/users/'.$name;
         }
         $user->fill($input)->save();
 
         return redirect()->back()->with('status','User Records are Updated Successfully');
+    }
+
+    /**
+     * @param $request
+     * @param $id
+     */
+    public function updatePassword($request, $id)
+    {
+        $user = $this->users->findOrFail($id);
+
+        $user->fill($request->only(bcrypt($request['password'])))->save();
+
+        return redirect()->back()->with('status','Password Updated Successfully !');
     }
 }

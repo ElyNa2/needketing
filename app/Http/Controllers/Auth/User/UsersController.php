@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth\User;
 
 use App\NeedKeting\Services\Auth\User\UsersService;
 use App\NeedKeting\Services\User\Tag\TagsService;
+use App\Http\Requests\Auth\User\UpdatePasswordRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -122,6 +123,16 @@ class UsersController extends Controller
     {
         $user = $this->auth->auth();
         return view('users.users.account_setting',compact('user'));
+    }
+
+    /**
+     * @param UpdatePasswordRequest $request
+     * @param $id
+     * @return mixed
+     */
+    public function updatePassword(UpdatePasswordRequest $request, $id)
+    {
+        return $this->auth->updatePassword($request,$id);
     }
     
 }

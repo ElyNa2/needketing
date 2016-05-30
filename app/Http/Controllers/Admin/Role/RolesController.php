@@ -54,7 +54,7 @@ class RolesController extends Controller
      */
     public function store(Requests\Admin\Role\StoreRoleRequest $request)
     {
-        $this->roles->create($request->only('name','description'));
+        $this->roles->create($request);
 
         return redirect (route('admin.roles.index'))->with('status','Role has been created');
     }
@@ -78,7 +78,7 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        $role = $this->roles->findOrFail($id);
+        $role = $this->roles->getFromId($id);
 
         return view('admin.role.form',compact('role'));
     }
@@ -90,18 +90,22 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\Users\Roles\UpdateRoleRequest $request,  $id)
+    public function update(Requests\Admin\Role\UpdateRoleRequest $request,  $id)
     {
-        $role = $this->roles->findOrFail($id);
+        $role = $this->roles->getFromId($id);
 
-        $role->fill($request->only('name'))->save();
+        $this->roles->updateRole($request,$role);
 
         return redirect(route('admin.roles.index'))->with('status','Role has beed Updated');
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function confirm($id)
     {
-        $role = $this->roles->findOrFail($id);
+        $role = $this->roles->getFromId($id);
 
         return view('admin.role.confirm',compact('role'));
     }
@@ -114,7 +118,7 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        $page = $this->roles->findOrFail($id);
+        $page = $this->roles->getFromId($id);
 
         $page->delete();
 

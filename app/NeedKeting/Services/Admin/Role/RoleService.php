@@ -38,10 +38,27 @@ class RoleService
      * @param $input
      * @return static
      */
-    public function create($input)
+    public function create($request)
     {
-        $role['name']        = $input['role'];
-        $role['description'] = $input['description'];
-        return $this->role->create($role);
+        return $this->role->create($request);
+    }
+
+    /**
+     * @param $request
+     * @param $id
+     * @return mixed
+     */
+    public function updateRole($request, $id)
+    {
+        return $this->role->updateRole($request, $id);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getFromId($id)
+    {
+        return $this->role->getFromId($id);
     }
 }

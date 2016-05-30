@@ -67,4 +67,9 @@ class PostsService
         }
     }
 
+    public function getPost($id)
+    {
+        return $this->posts->getPost($id);
+    }
+
 }

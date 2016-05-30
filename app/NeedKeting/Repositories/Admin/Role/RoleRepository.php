@@ -38,6 +38,27 @@ class RoleRepository
      */
     public function create($role)
     {
-        return $this->role->create($role);
+        return $this->role->create($role->all());
+    }
+
+
+    /**
+     * @param $request
+     * @param $role
+     * @return mixed
+     */
+    public function updateRole($request, $role)
+    {
+        return $role->fill($request->only('name'))->save();
+    }
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getFromId($id)
+    {
+        $role = $this->role->findOrFail($id);
+
+        return $role;
     }
 }

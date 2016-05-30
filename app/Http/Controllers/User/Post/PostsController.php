@@ -52,6 +52,7 @@ class PostsController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+
         return $this->posts->create($request);
         
     }
@@ -75,7 +76,6 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**

@@ -14,6 +14,9 @@ class PostsRepository
      */
     public $posts;
 
+    /**
+     * @var Guard
+     */
     public $auth;
 
     /**
@@ -82,23 +85,39 @@ class PostsRepository
      */
     public function create($request)
     {
+
         $input = $request->all();
+
         $input['published_at'] = Carbon::now();
+        
         if($request->hasFile('image'))
+            
         {
-            $random = rand(100,99999);
-            $imageName = 'nkt-post-image'.$random. '.' .
-                $request->file('image')->getClientOriginalExtension();
-            $fullPath = 'http://localhost:8000/assets/images/posts/'.$imageName;
-            $request->file('image')->move(
-                public_path() . '/assets/images/posts/', $imageName);
-            $input['image'] = $fullPath;
-         }
+            $image = $request->file('image');
+
+            $name = time().$image->getClientOriginalName();
+
+            $image->move(public_path() . '/assets/images/posts/', $name);
+
+            $input['image'] = 'http://localhost:8000/assets/images/posts/'.$name;
+
+        }
+
         $post = Auth::user()->posts()->create($input);
+        
         $post->tags()->attach($request->input('tags'));
-
-
+        
         return redirect(route('home'))->with('status','Post has been created');
+    }
+
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getPost($id)
+    {
+        return $this->posts->findOrFail($id);
     }
     
 }

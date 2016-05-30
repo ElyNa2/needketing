@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Needketing\Models;
+namespace App\NeedKeting\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
@@ -20,7 +20,13 @@ class Post extends Model
     /**
      * @var array
      */
-    protected $fillable = ['content','image','location','user_id','published_at'];
+    protected $fillable = [
+        'content',
+        'image',
+        'location',
+        'user_id',
+        'published_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

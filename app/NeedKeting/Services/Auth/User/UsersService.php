@@ -59,10 +59,25 @@ class UsersService
     {
         return $this->users->auth();
     }
-    
-    public function update($request,$id)
+
+    /**
+     * @param $request
+     * @param $id
+     * @return mixed
+     */
+    public function update($request, $id)
     {
         return $this->users->update($request,$id);
+    }
+
+    /**
+     * @param $request
+     * @param $id
+     * @return mixed
+     */
+    public function updatePassword($request, $id)
+    {
+        return $this->users->updatePassword($request, $id);
     }
     
 }

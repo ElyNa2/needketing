@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User\Dashboard;
 
 use App\NeedKeting\Models\Tag;
-use App\NeedKeting\Services\User\Comment\CommentsService;
 use App\NeedKeting\Services\User\Post\PostsService;
 use App\NeedKeting\Services\User\Tag\TagsService;
 use Illuminate\Contracts\Auth\Guard;
@@ -43,7 +42,6 @@ class DashboardController extends Controller
                                 LoggerInterface $logger
     )
     {
-        $this->middleware('auth', ['except' => ['index']]);
         $this->posts = $posts;
         $this->tags = $tags;
         $this->auth = $auth;
@@ -132,5 +130,6 @@ class DashboardController extends Controller
     {
         //
     }
+
 
 }
