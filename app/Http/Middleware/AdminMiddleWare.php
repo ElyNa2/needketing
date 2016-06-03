@@ -15,10 +15,10 @@ class AdminMiddleWare
      */
     public function handle($request, Closure $next)
     {
-        if($request->user() && $request->user()->isAdmin())
+        if($request->user() && $request->user()->isAdmin($request->user()))
         {
             return $next($request);
         }
-        return redirect('admin/signin');
+        return redirect('admin/login');
     }
 }

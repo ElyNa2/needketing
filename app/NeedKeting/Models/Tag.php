@@ -11,6 +11,7 @@ class Tag extends Model
      */
     protected $table = 'tags';
 
+    protected $dates = ['published_at','created_at','updated_at'];
     /**
      * @var array
      */

@@ -16,21 +16,12 @@
 <body>
 
     @include('users.master.navigation')
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    @include('errors.list')
+
     @if($status)
 
         <div class="alert alert-info">
-
             {{ $status }}
-
         </div>
 
     @endif

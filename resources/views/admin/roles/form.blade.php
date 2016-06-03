@@ -4,7 +4,7 @@
 
 @section('content')
     {!! Form::model($role,[
-        'method' => $role->exists ? 'put' : 'post',
+        'method' => $role->exists ? 'put' : 'posts',
         'route'  => $role->exists ? ['admin.roles.update',$role->id] : ['admin.roles.store']
     ]) !!}
 

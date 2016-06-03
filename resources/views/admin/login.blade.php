@@ -14,7 +14,7 @@
         </div>
             <div class="col-lg-4 col-lg-offset-4">
                 <div class="form-section login">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/login') }}">
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

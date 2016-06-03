@@ -113,7 +113,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Get all the tags related to one post
+     * Get all the tags related to one posts
      *
      * @return mixed
      */

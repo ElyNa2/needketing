@@ -30,7 +30,6 @@ class SocialAccountService
             $account = new SocialAccount([
                 'provider_user_id' => $providerUser->getId(),
                 'provider' => $providerName,
-                'role_id' => 1,
             ]);
 
             $user = User::whereEmail($providerUser->getEmail())->first();
@@ -38,7 +37,7 @@ class SocialAccountService
             if (!$user) {
 
                 $user = User::create([
-                    'email' => $providerUser->getEmail(),
+                    'username' => $providerUser->getNickname(),
                     'name' => $providerUser->getName(),
                     'image' => $providerUser->getAvatar(),
                     'role_id' => 1,

@@ -29,7 +29,7 @@
 
             <div class="col-lg-10">
 
-                {!! Form::open(['method'=>'post','url'=>'users/posts','files'=>'true']) !!}
+                {!! Form::open(['method'=>'posts','url'=>'users/posts','files'=>'true']) !!}
 
                     <div class="form-group">
 

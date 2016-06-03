@@ -46,7 +46,7 @@
 
             <div class="col-lg-10">
 
-                {!! Form::open(['method'=>'post','url'=>'users/posts','files'=>'true']) !!}
+                {!! Form::open(['method'=>'posts','url'=>'users/posts','files'=>'true']) !!}
 
                     <div class="form-group">
 
@@ -96,7 +96,7 @@
 
             </div>
 
-        </div><!-- //nkt-creating-post-form -->
+        </div><!-- //nkt-creating-posts-form -->
 
         <div ng-controller="UserPostsController">
 
@@ -236,7 +236,7 @@
 
                 </div><!-- End of Comment view -->
 
-            </div><!-- nkt-post-list -->
+            </div><!-- nkt-posts-list -->
 
         </div>
 

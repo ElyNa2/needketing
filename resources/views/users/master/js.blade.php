@@ -26,7 +26,7 @@
      */
     needKeting.controller('PostController',function($scope,$http){
         /*
-            Getting all the post related data through controller
+            Getting all the posts related data through controller
          */
         $http.get('/all/posts').success(function (response) {
            $scope.posts = response;
@@ -46,7 +46,7 @@
        });
     });
     /*
-        CommentController is used to get all the comments related to the user and post.
+        CommentController is used to get all the comments related to the user and posts.
      */
     needKeting.controller('CommentController',function($scope,$http){
 
@@ -64,7 +64,7 @@
             };
 
             $scope.comments.push(comment);
-            $http.post('/users/comments',comment);
+            $http.posts('/users/comments',comment);
             console.log(comment);
         };
 */

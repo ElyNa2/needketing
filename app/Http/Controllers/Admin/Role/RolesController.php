@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Role;
 
+use App\Http\Requests\Admin\Role\UpdateRoleRequest;
 use Illuminate\Http\Request;
 
 use App\NeedKeting\Models\Role;
@@ -33,7 +34,7 @@ class RolesController extends Controller
     public function index()
     {
         $roles = $this->roles->all();
-        return view('admin.role.index',compact('roles'));
+        return view('admin.roles.index',compact('roles'));
     }
 
     /**
@@ -43,7 +44,7 @@ class RolesController extends Controller
      */
     public function create(Role $role)
     {
-        return view('admin.role.form',compact('role'));
+        return view('admin.roles.form',compact('role'));
     }
 
     /**
@@ -80,7 +81,7 @@ class RolesController extends Controller
     {
         $role = $this->roles->getFromId($id);
 
-        return view('admin.role.form',compact('role'));
+        return view('admin.roles.form',compact('role'));
     }
 
     /**
@@ -90,7 +91,7 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\Admin\Role\UpdateRoleRequest $request,  $id)
+    public function update(UpdateRoleRequest $request,  $id)
     {
         $role = $this->roles->getFromId($id);
 
@@ -107,7 +108,7 @@ class RolesController extends Controller
     {
         $role = $this->roles->getFromId($id);
 
-        return view('admin.role.confirm',compact('role'));
+        return view('admin.roles.confirm',compact('role'));
     }
 
     /**

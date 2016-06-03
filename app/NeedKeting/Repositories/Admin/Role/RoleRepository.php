@@ -61,4 +61,5 @@ class RoleRepository
 
         return $role;
     }
+
 }

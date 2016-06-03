@@ -61,4 +61,5 @@ class RoleService
     {
         return $this->role->getFromId($id);
     }
+
 }

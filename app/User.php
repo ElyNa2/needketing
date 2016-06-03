@@ -79,12 +79,24 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
-    public function isAdmin()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function site_infos()
     {
-        if(Auth::id() == 2)
+        return $this->belongsTo('App\NeedKeting\Models\SiteInfo');
+    }
+    /**
+     * @return bool
+     */
+    public function isAdmin($request)
+    {
+        return true;
+        /*if($request['role_id'] == 2)
         {
             return true;
         }
-        return false;
+        return false;*/
+
     }
 }

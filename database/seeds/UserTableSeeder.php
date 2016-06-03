@@ -72,7 +72,7 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'name' => 'Madhu Sudhan Subedi',
-                'email' => 'madhusudhansubedi@acd.edu.np',
+                'email' => 'madhusudhansubedi@ac',
                 'username' => 'madhusudhansubedi',
                 'image' => '',
                 'phone' => '',
