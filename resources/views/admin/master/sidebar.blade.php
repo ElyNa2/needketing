@@ -19,6 +19,15 @@
         <li>
             <a href="{{ URL::to('admin/site_info') }}"> Site Info <i class="right-space ion ion-ios-arrow-right pull-right hidden-xs"></i></a>
         </li>
+        <li>
+            <a href="{{ URL::to('admin/admin') }}"> Admin <i class="right-space ion ion-ios-arrow-right pull-right hidden-xs"></i></a>
+        </li>
+        <li>
+            <a href="{{ URL::to('admin/users') }}"> Users <i class="right-space ion ion-ios-arrow-right pull-right hidden-xs"></i></a>
+        </li>
+        <li>
+            <a href="{{ URL::to('admin/report_post') }}"> Report Post <i class="right-space ion ion-ios-arrow-right pull-right hidden-xs"></i></a>
+        </li>
     </ul>
 </div>
 <!-- /#sidebar-wrapper -->

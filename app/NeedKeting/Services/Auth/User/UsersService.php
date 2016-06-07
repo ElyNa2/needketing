@@ -43,6 +43,14 @@ class UsersService
     }
 
     /**
+     * @return mixed
+     */
+    public function allClientUser()
+    {
+        return $this->users->allClientUser();
+    }
+    
+    /**
      * All the posts of Authenticated User
      *
      * @return mixed
@@ -78,6 +86,15 @@ class UsersService
     public function updatePassword($request, $id)
     {
         return $this->users->updatePassword($request, $id);
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getFromId($id)
+    {
+        return $this->users->getFromId($id);
     }
     
 }

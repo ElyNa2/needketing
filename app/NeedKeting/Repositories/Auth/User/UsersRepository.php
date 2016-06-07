@@ -43,6 +43,14 @@ class UsersRepository
     }
 
     /**
+     * @return mixed
+     */
+    public function allClientUser()
+    {
+        return $this->users->where('role_id',1)->get();
+    }
+
+    /**
      * Return authenticated user
      *
      * @return Guard
@@ -89,5 +97,14 @@ class UsersRepository
         $user->fill($request->only(bcrypt($request['password'])))->save();
 
         return redirect()->back()->with('status','Password Updated Successfully !');
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getFromId($id)
+    {
+        return $this->users->findOrFail($id);
     }
 }

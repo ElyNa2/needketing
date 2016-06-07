@@ -1,13 +1,14 @@
 <?php
 
-use Illuminate\Http\Request;
 
 Route::group(['middleware' => ['web']], function () {
 
 
-    Route::auth();
+    //Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+
+
+    //Route::get('/home', 'HomeController@index');
     
     Route::get('/redirect/{provider}', 'Auth\SocialAuthController@redirect');
     Route::get('/callback/{provider}', 'Auth\SocialAuthController@callback');
@@ -19,6 +20,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('all/tags',['as'=>'all.tags','uses'=>'User\Tag\TagsController@getAll']);
     Route::get('all/comments',['as'=>'all.comments','uses'=>'User\Comment\CommentsController@getAll']);
     Route::get('auth/user',['as'=>'auth.user','uses'=>'Auth\User\UsersController@getAuth']);
+    Route::get('all/site_info',['as'=>'all.site_info','uses'=>'Front\SiteInfoController@getAll']);
+
+
+    Route::get('about',['as'=>'needketing.about','uses'=>'Front\SiteInfoController@about']);
+    Route::get('terms',['as'=>'needketing.terms','uses'=>'Front\SiteInfoController@terms']);
+    Route::get('privacy',['as'=>'needketing.privacy','uses'=>'Front\SiteInfoController@privacy']);
 
     Route::post('login', 'Auth\AuthController@login');
     Route::get('logout', 'Auth\AuthController@logout');
@@ -39,15 +46,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('user/profile/account',['as'=>'user.profile.account','uses'=>'Auth\User\UsersController@accountSetting']);
     Route::resource('user/profile','Auth\User\UsersController');
 
-    Route::get('admin/login',function(){
-        return view('admin.login');
-    });
-
-    Route::post('admin/login',['as'=>'admin.login','uses'=>'Admin\User\UsersController@login']);
+    Route::post('report/posts',['as'=>'report.posts','uses'=>'User\Post\ReportPostController@create']);
+    
+    Route::get('admin/login',['as'=>'admin.getlogin','uses'=>'Admin\User\UsersController@getLogin']);
+    Route::post('admin/login',['as'=>'admin.postlogin','uses'=>'Admin\User\UsersController@postLogin']);
 
     Route::group(['middleware' => ['admin']], function () {
 
-        Route::get('admin',['as'=>'admin','uses'=>'Admin\Dashboard\AdminController@index']);    
+        Route::get('admin',['as'=>'admin','uses'=>'Admin\Dashboard\AdminController@index']);
     
         Route::get('admin/roles/{roles}/confirm',['as'=>'admin.roles.confirm','uses'=>'Admin\Role\RolesController@confirm']);
         Route::resource('admin/roles','Admin\Role\RolesController');
@@ -63,8 +69,21 @@ Route::group(['middleware' => ['web']], function () {
         Route::delete('admin/comments/{comments}',['as'=>'admin.comments.destroy','uses'=>'Admin\Comment\CommentsController@destroy']);
         Route::get('admin/comments',['as'=>'admin.comments.index','uses'=>'Admin\Comment\CommentsController@index']);
         
-        Route::get('admin/site_info/{site_info}/confirm',['as'=>'admin.site_info.confirm','uses'=>'Admin\SiteInfo\SiteController@confirm']);
+        Route::get('admin/site_info/{site_info}/confirm',['as'=>'admin.site_info.confirm','uses'=>'Admin\SiteInfo\SiteInfoController@confirm']);
         Route::resource('admin/site_info','Admin\SiteInfo\SiteInfoController');
+
+        Route::get('admin/users/{users}/confirm',['as'=>'admin.users.confirm','uses'=>'Admin\User\UsersController@confirm']);
+        Route::delete('admin/users/{users}',['as'=>'admin.users.destroy','uses'=>'Admin\User\UsersController@destroy']);
+        Route::get('admin/users',['as'=>'admin.users','uses'=>'Admin\User\UsersController@users']);
+
+        Route::get('admin/admin/{admin}/confirm',['as'=>'admin.admin.confirm','uses'=>'Admin\User\AdminController@confirm']);
+        Route::resource('admin/admin','Admin\User\AdminController');
+
+
+        Route::get('admin/report_post/{report_posts}/confirm',['as'=>'admin.report_post.confirm','uses'=>'Admin\Post\ReportPostController@confirm']);
+        Route::delete('admin/report_post/{report_posts}',['as'=>'admin.report_post.destroy','uses'=>'Admin\Post\ReportPostController@destroy']);
+        Route::get('admin/report_post',['as'=>'admin.report_post.index','uses'=>'Admin\Post\ReportPostController@index']);
     });
 });
+
 

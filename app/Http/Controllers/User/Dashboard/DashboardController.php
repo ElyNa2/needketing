@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class DashboardController extends Controller
 {
@@ -42,6 +43,7 @@ class DashboardController extends Controller
                                 LoggerInterface $logger
     )
     {
+        $this->middleware('auth',['except' => 'index']);
         $this->posts = $posts;
         $this->tags = $tags;
         $this->auth = $auth;

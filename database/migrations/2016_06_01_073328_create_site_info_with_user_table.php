@@ -27,7 +27,7 @@ class CreateSiteInfoWithUserTable extends Migration
     public function down()
     {
         Schema::table('site_infos', function (Blueprint $table) {
-            $table->dropForeign('user_id');
+            $table->dropForeign('site_infos_user_id_foreign');
         });
     }
 }

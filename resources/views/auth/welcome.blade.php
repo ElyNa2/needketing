@@ -154,7 +154,7 @@
                                     Sign Up
                                 </button>
                             </form>
-                            <p>By signing up, you agree to the <a href="">Terms of Service</a> and <a href="">Privacy Policy</a>
+                            <p>By signing up, you agree to the <a href="{{ URL::to('terms') }}">Terms of Service</a> and <a href="{{ URL::to('privacy') }}">Privacy Policy</a>
                             </p>
                         </div>
                     </div><!-- col-lg-6 -->
@@ -162,9 +162,9 @@
 
                 <div class="row">
                     <p class="text-center">
-                        <a href="">About</a> |
-                        <a href="">Terms</a> |
-                        <a href="">Privacy</a> |
+                        <a href="{{ URL::to('about') }}">About</a> |
+                        <a href="{{ URL::to('terms') }}">Terms</a> |
+                        <a href="{{ URL::to('privacy') }}">Privacy</a> |
                         &copy 2016 needketing
                     </p>
                 </div>

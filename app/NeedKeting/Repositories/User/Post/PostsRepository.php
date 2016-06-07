@@ -19,6 +19,7 @@ class PostsRepository
      */
     public $auth;
 
+    private $tracker;
     /**
      * PostRepository constructor.
      * @param Post $posts
@@ -89,9 +90,8 @@ class PostsRepository
         $input = $request->all();
 
         $input['published_at'] = Carbon::now();
-        
+
         if($request->hasFile('image'))
-            
         {
             $image = $request->file('image');
 
@@ -106,8 +106,6 @@ class PostsRepository
         $post = Auth::user()->posts()->create($input);
         
         $post->tags()->attach($request->input('tags'));
-        
-        return redirect(route('home'))->with('status','Post has been created');
     }
 
 

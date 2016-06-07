@@ -1,6 +1,6 @@
 @extends('admin.master.layouts')
 
-@section('title','Role')
+@section('title','Posts')
 
 @section('content')
     <h2>Posts</h2>
@@ -19,10 +19,10 @@
 
             <tr>
                 <td>{{ $post->content }}</td>
-                <td>{{ $post->image }}</td>
+                <td><img src="{{ $post->image }}" alt="" height="40px" width="40px"></td>
                 <td>
-                    <a href="{{ route('admin.posts.confirm',$post->id) }}">
-                        <i class="ion ion-ios-close-empty"></i>
+                    <a href="{{ route('admin.posts.confirm',$post->id) }}" class="pull-right">
+                        @include('admin.master.delete-icon')
                     </a>
                 </td>
             </tr>

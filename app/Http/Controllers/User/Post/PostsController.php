@@ -7,13 +7,15 @@ use App\NeedKeting\Services\User\Post\PostsService;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use PragmaRX\Tracker\Tracker;
 
 class PostsController extends Controller
 {
     /**
      * @var PostsService
      */
-    public $posts;
+    private $posts;
+    
 
     /**
      * PostsController constructor.
@@ -53,8 +55,9 @@ class PostsController extends Controller
     public function store(StorePostRequest $request)
     {
 
-        return $this->posts->create($request);
-        
+        $this->posts->create($request);
+
+        return redirect(route('home'))->with('status','Post has been created');
     }
 
     /**

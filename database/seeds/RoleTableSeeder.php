@@ -16,10 +16,10 @@ class RoleTableSeeder extends Seeder
         DB::table('roles')->insert([
 
             [
-                'name' => 'Admin'
+                'name' => 'General User'
             ],
             [
-                'name' => 'General User'
+                'name' => 'Admin'
             ]
 
         ]);

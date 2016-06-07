@@ -21,4 +21,8 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+    $(document).ready(function(){
+        $('.table').DataTable();
+    });
 </script>
+<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
