@@ -27,6 +27,7 @@ class CommentsRepository
         return $this->comments->all();
     }
 
+
     /**
      * @param $request
      * @return static

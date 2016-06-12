@@ -1,3 +1,50 @@
-.nkt-client-dashboard{
-  margin:30px 0 0 0;
+.nkt-header{
+  padding:20px 0 20px 0;
+  .form-control{
+    margin-top:10px;
+    border-radius: 0;
+  }
 }
+
+.nkt-client-dashboard{
+  padding:20px 0 50px 0;
+}
+.nkt-post-list{
+  .nkt-post-owner img{
+     height:60px;
+    width:60px;
+    float:right;
+    margin-right:-15px;
+  }
+}
+.input-group-btn:last-child > .btn{
+  margin-top:10px;
+}
+
+.nkt-post-detail{
+  padding:10px;
+  border: 2px solid #000000;
+  background-color: #ffffff;
+  .btn{
+    background-color: #00AA00;
+    @include border-bottom-radius(0);
+    @include border-top-radius(0);
+    @include border-left-radius(0);
+    @include border-right-radius(0);
+    font-size:12px;
+  }
+  .nkt-post-text{
+    font-size: 13px;
+    padding-top:7px;
+  }
+  .nkt-post-image{
+    float:right;
+    width:100%;
+  }
+
+}
+.navbar-default {
+  background-color: rgba(0,0,0,0);
+  border-color: rgba(0,0,0,0);
+}
+

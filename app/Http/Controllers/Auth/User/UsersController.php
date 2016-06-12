@@ -41,36 +41,6 @@ class UsersController extends Controller
         return view('users.users.index',compact('tags'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -93,20 +63,12 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $this->auth->update($request,$id);
+        $this->auth->update($request,$id);
+        
+        return redirect()->back()->with('status','User Records are Updated Successfully');
         
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     /**
      * @return mixed
@@ -132,7 +94,20 @@ class UsersController extends Controller
      */
     public function updatePassword(UpdatePasswordRequest $request, $id)
     {
-        return $this->auth->updatePassword($request,$id);
+        $this->auth->updatePassword($request,$id);
+       
+        return redirect()->back()->with('status','Password Updated Successfully');
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     */
+    public function updateTagsSubscribe(Request $request, $id)
+    {
+        $this->auth->updateTagsSubscribe($request,$id);
+
+        return redirect()->back()->with('status','Tag Subscription completed successfully');
     }
     
 }

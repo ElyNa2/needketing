@@ -143,99 +143,36 @@
 
 
                     <div class="nkt-post-actions">
-
-                        <button class="btn btn-primary" ng-click="showme=true">Comment</button>
-
+                        button class="btn btn-primary" ng-click="showme=true">Comment</button>
                         <button class="btn btn-primary">Share</button>
-
                         <span class="more-option"  ng-model="moreoption" ng-click="moreoption=!moreoption">
-
                             <i class="ion ion-android-more-horizontal"></i>
-
                         </span>
-
                     </div>
 
-                    <div class="list-group" ng-show="moreoption">
-
-                        <a href="" class="list-group-item">Edit Post</a>
-
-                        <a href="" class="list-group-item">Change Location</a>
-
-                        <a href="" class="list-group-item">Delete</a>
-
+                    <div ng-if=" user.id == post.user_id">
+                        <div class="list-group" ng-show="moreoption">
+                            <a href="/users/posts/<% post.id %>/edit"  class="list-group-item" data-toggle="modal"  data-target="#myModal1">Edit Post</a>
+                            <a href="/users/posts/<%post.id%>/confirm" class="list-group-item" data-toggle="modal"  data-target="#confirmModal">Delete Post</a>
+                        </div>
                     </div>
 
+                    @include('users.master.post_delete_modal')
+                    @include('users.master.post_edit_modal')
+
+
+                    <div ng-if=" user.id != post.user_id">
+                        <div class="list-group" ng-show="moreoption">
+                            <a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<% post.id  %>" data-whatever="@mdo">Report Post</a>
+                        </div>
+                    </div>
+
+                    <div class="nkt-comment-list" ng-show="showme">
+                        @include('users.master.comment_form')
+                        @include('users.master.comment_list')
+                    </div><!-- End of Comment view -->
                 </div>
-
-                <div class="nkt-comment-list" ng-show="showme">
-
-                    <div class="nkt-comment-form">
-
-                        <div class="col-lg-2">
-
-                            <img src="{{ Auth::user()->image }}" alt=""  height="40px" width="40px">
-
-                        </div>
-
-                        <form method="POST" action="{{ url('users/comments') }}" accept-charset="UTF-8" enctype="multipart/form-data">
-
-                            <input name="_token" type="hidden" value="{{ csrf_token() }}">
-
-                            <input name="user_id" type="hidden" value="{{ Auth::user()->id }}">
-
-                            <input name="post_id" type="hidden" value="<% post.id  %>">
-
-                            <input name="published_at" type="hidden" value="{{ Carbon\Carbon::today()->format('Y-m-d') }}">
-
-                            <div class="nkt-comment-form col-lg-8 " >
-
-                                <input class="form-control" placeholder="comment" name="content" type="text" id="content">
-
-                            </div>
-
-                            <div class="col-lg-2 pull-right">
-
-                                <button class="btn btn-success" type="submit">comment</button>
-
-                            </div>
-
-                        </form>
-
-                    </div>
-
-                    <div ng-controller="CommentController" class="row">
-
-                        <div ng-repeat="comment in post.comments" class="col-lg-12">
-
-                            <div class="col-lg-2" ng-if="comment.userImage !== ''">
-
-                                <img src="<% comment.userImage %>" alt="" height="40px" width="40px">
-
-                            </div>
-
-                            <div class="col-lg-2  " ng-if="comment.userImage === ''">
-
-                                <img src="https://raw.githubusercontent.com/thoughtbot/refills/49db8c0f2f8066c2c3a275781503fe3303a1a9fc/source/images/placeholder.png" height="40px" width="40px"/>
-
-                            </div>
-
-                            <div class="col-lg-8">
-
-                                <a href=""><% comment.userName %></a>
-
-                                <% comment.content %>
-
-                            </div>
-
-                            <div class="col-lg-2"></div>
-
-                        </div>
-
-                    </div>
-
-                </div><!-- End of Comment view -->
-
+                @include('users.master.post_report_modal')
             </div><!-- nkt-posts-list -->
 
         </div>

@@ -83,7 +83,6 @@ class UsersRepository
         }
         $user->fill($input)->save();
 
-        return redirect()->back()->with('status','User Records are Updated Successfully');
     }
 
     /**
@@ -96,9 +95,20 @@ class UsersRepository
 
         $user->fill($request->only(bcrypt($request['password'])))->save();
 
-        return redirect()->back()->with('status','Password Updated Successfully !');
     }
 
+    /**
+     * @param $request
+     * @param $id
+     */
+    public function updateTagsSubscribe($request, $id)
+    {
+        $user = $this->users->findOrFail($id);
+        
+        $user->fill($request->only('tags'))->save();
+
+        $user->tags()->sync($request->input('tags'));
+    }
     /**
      * @param $id
      * @return mixed

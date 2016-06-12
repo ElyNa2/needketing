@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Dashboard;
 
+use App\NeedKeting\Models\Post;
+use App\NeedKeting\Services\Admin\Post\PostsService;
+use App\NeedKeting\Services\Admin\Tag\TagsService;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,6 +13,15 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
+
+    public function __contruct(
+        PostsService $posts,
+        TagsService $tags
+    )
+    {
+        $this->posts = $posts;
+        $this->tags = $tags;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +29,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.admin.index');
+        $posts = Post::all()->count();
+        $users = User::whereNotNull('last_login_at')->orderBy('last_login_at','desc')->take(5)->get();
+   
+        return view('admin.admin.index',compact('users','posts'));
     }
 
     /**

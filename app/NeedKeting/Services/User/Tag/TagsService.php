@@ -29,4 +29,14 @@ class TagsService
     {
         return $this->tags->all();
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getFromId($id)
+    {
+        return $this->tags->getFromId($id);
+    }
+
 }

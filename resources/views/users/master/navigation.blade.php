@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row nkt-header">
         <div class="col-md-5">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
@@ -31,15 +31,21 @@
                 <ul class="dropdown-menu text-center">
                     <li><a href="{{ url('user/profile/account') }}">Settings</a></li>
                     <li><a href="{{ url('user/profile') }}">View Profile</a></li>
-                    <li><a href="#">Manage Subscription</a></li>
+                    <li><a href="{{ url('tags/subscribe') }}">Manage Subscription</a></li>
                     <li><a href="{{ url('logout') }}">Logout</a></li>
                 </ul>
             </div>
         </div>
         <div class="col-lg-3">
-            <form action="">
+           {{-- <form action="">
                 <input type="text" placeholder="Search" ng-model="search" class="form-control">
-            </form>
+            </form>--}}
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" ng-model="search">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                  </span>
+            </div><!-- /input-group -->
         </div>
     </div>
 </div>

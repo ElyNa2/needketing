@@ -24,9 +24,8 @@ class UpdatePasswordRequest extends Request
     public function rules()
     {
         return [
-            'old_password' => 'required|min:6',
-            'password' => 'required|min:6',
-            'password_confirmation' => 'required|min:6'
+            'old_password' => 'required|min:8',
+            'password' => 'required_with:password_confirmation|confirmed',
         ];
     }
 }

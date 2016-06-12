@@ -1,3 +1,4 @@
+
 <header class="header">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -15,13 +16,13 @@
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown pull-right">
                 <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img class="img-responsive user-image pull-left" src="" alt="" >
+                    <img class="img-responsive user-image pull-left" src="{{ auth()->user()->image }}" alt="" >
                                     <span class="pull-right user-drop" style="">
-                                    Madhu Sudhan<span class="caret"></span>
+                                    {{ auth()->user()->name }}<span class="caret"></span>
                                     </span>
                 </a>
                 <ul class="dropdown-menu dropdown-user text-center">
-                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="{{ URL::to('logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>

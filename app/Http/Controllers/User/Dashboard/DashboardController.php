@@ -5,12 +5,12 @@ namespace App\Http\Controllers\User\Dashboard;
 use App\NeedKeting\Models\Tag;
 use App\NeedKeting\Services\User\Post\PostsService;
 use App\NeedKeting\Services\User\Tag\TagsService;
+use App\Http\Utilities\Location;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class DashboardController extends Controller
 {
@@ -61,9 +61,10 @@ class DashboardController extends Controller
             return view('auth.welcome');
         }
         else{
+            $locations = config('data.location');
             $tags = Tag::lists('tag_name','id');
             $posts = $this->posts->all();
-            return view('users.dashboard.index',compact('posts','tags'));
+            return view('users.dashboard.index',compact('posts','tags','locations'));
         }
     }
 

@@ -17,6 +17,7 @@ Route::group(['middleware' => ['web']], function () {
      */
     Route::get('all/posts',['as'=>'all.posts','uses'=>'User\Post\PostsController@getAll']);
     Route::get('all/posts/user',['as'=>'all.posts.user','uses'=>'User\Post\PostsController@getAllPostOfUser']);
+    Route::get('all/{tag}/tag',['as'=>'all.posts.tag','uses'=>'User\Post\PostsController@getAllPostOfTag']);
     Route::get('all/tags',['as'=>'all.tags','uses'=>'User\Tag\TagsController@getAll']);
     Route::get('all/comments',['as'=>'all.comments','uses'=>'User\Comment\CommentsController@getAll']);
     Route::get('auth/user',['as'=>'auth.user','uses'=>'Auth\User\UsersController@getAuth']);
@@ -38,18 +39,25 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'home',
         'uses' => 'User\Dashboard\DashboardController@index'
     ));
-    
+
+    Route::get('users/posts/{posts}/confirm',['as'=>'users.posts.confirm','uses'=>'User\Post\PostsController@confirm']);
     Route::resource('users/posts','User\Post\PostsController');
     Route::resource('users/comments','User\Comment\CommentsController');
 
     Route::put('user/profile/password/{user}',['as'=>'user.profile.updatePassword' ,'uses'=>'Auth\User\UsersController@updatePassword']);
+    Route::put('user/subscribe/tags/{user}',['as'=>'user.subscribe.tags' ,'uses'=>'Auth\User\UsersController@updateTagsSubscribe']);
     Route::get('user/profile/account',['as'=>'user.profile.account','uses'=>'Auth\User\UsersController@accountSetting']);
     Route::resource('user/profile','Auth\User\UsersController');
+
+    Route::get('tags/subscribe',['as'=>'user.tag.subscribe','uses'=>'User\Subscribe\SubscribeTagController@index']);
+
+    Route::get('tag/{tag}/show',['as'=>'tag.show','uses'=>'User\Tag\TagsController@show']);
 
     Route::post('report/posts',['as'=>'report.posts','uses'=>'User\Post\ReportPostController@create']);
     
     Route::get('admin/login',['as'=>'admin.getlogin','uses'=>'Admin\User\UsersController@getLogin']);
     Route::post('admin/login',['as'=>'admin.postlogin','uses'=>'Admin\User\UsersController@postLogin']);
+    
 
     Route::group(['middleware' => ['admin']], function () {
 

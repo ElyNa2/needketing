@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->date('dob');
             $table->string('country');
             $table->integer('role_id')->unsigned();
-            $table->integer('tags_id')->unsigned();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

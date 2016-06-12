@@ -25,7 +25,6 @@ class UserTableSeeder extends Seeder
                 'dob' => '1994-01-05',
                 'country' => 'Nepal',
                 'role_id' => 1,
-                'tags_id' => 1,
                 'password'=>bcrypt('password')
             ],
             [
@@ -39,7 +38,6 @@ class UserTableSeeder extends Seeder
                 'dob' => '1994-02-05',
                 'country' => 'Nepal',
                 'role_id' => 1,
-                'tags_id' => 1,
                 'password'=>bcrypt('password')
             ],
             [
@@ -53,7 +51,6 @@ class UserTableSeeder extends Seeder
                 'dob' => '1994-01-05',
                 'country' => 'Nepal',
                 'role_id' => 1,
-                'tags_id' => 1,
                 'password'=>bcrypt('password')
             ],
             [
@@ -67,7 +64,6 @@ class UserTableSeeder extends Seeder
                 'dob' => '1994-01-05',
                 'country' => 'Nepal',
                 'role_id' => 1,
-                'tags_id' => 1,
                 'password'=>bcrypt('password')
             ],
             [
@@ -81,7 +77,6 @@ class UserTableSeeder extends Seeder
                 'dob' => '1994-01-05',
                 'country' => 'Nepal',
                 'role_id' => 2,
-                'tags_id' => 1,
                 'password'=>bcrypt('password')
             ],
         ]);

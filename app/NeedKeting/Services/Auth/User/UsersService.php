@@ -89,6 +89,14 @@ class UsersService
     }
 
     /**
+     * @param $request
+     * @param $id
+     */
+    public function updateTagsSubscribe($request, $id)
+    {
+        return $this->users->updateTagsSubscribe($request,$id);
+    }
+    /**
      * @param $id
      * @return mixed
      */

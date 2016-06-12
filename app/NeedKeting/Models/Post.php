@@ -28,6 +28,10 @@ class Post extends Model
         'published_at'
     ];
 
+    protected $appends = [
+        'tag_list'
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -58,6 +62,9 @@ class Post extends Model
         return $this->user()->first()->name;
     }
 
+    /**
+     * @return mixed
+     */
     public function getUserImageAttribute()
     {
         return $this->user()->first()->image;
@@ -79,5 +86,14 @@ class Post extends Model
         return $this->hasMany('App\NeedKeting\Models\Comment');
     }
 
+
+    /**
+     * List of tag id for editing posts
+     * @return mixed
+     */
+    public function getTagListAttribute()
+    {
+        return $this->tags()->lists('id')->toArray();
+    }
 
 }

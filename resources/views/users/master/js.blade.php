@@ -8,8 +8,4 @@
         placeholder: 'Choose some tags',
         tags: 'true'
     });
-    $('#tag_list_modal').select2({
-        placeholder: 'Choose some tags',
-        tags: 'true'
-    });
 </script>

@@ -13,9 +13,8 @@ class CreatePostReportPostUserTable extends Migration
     public function up()
     {
         Schema::table('report_posts', function (Blueprint $table) {
-
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
 
         });
     }

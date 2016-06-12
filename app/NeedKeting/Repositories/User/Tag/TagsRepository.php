@@ -29,6 +29,16 @@ class TagsRepository
      */
     public function all()
     {
-        return $this->tags->all();
+        return $this->tags->take(10)->get();
     }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getFromId($id)
+    {
+        return $this->tags->findOrFail($id);
+    }
+    
 }

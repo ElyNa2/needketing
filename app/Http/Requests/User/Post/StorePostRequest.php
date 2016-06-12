@@ -24,7 +24,9 @@ class StorePostRequest extends Request
     public function rules()
     {
         return [
-            'content' => 'required'
+            'content' => 'required',
+            'tags' => 'required|array|max:3|min:1',
+            'location' => 'required'
         ];
     }
 }

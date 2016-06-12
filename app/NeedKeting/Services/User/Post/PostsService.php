@@ -54,6 +54,15 @@ class PostsService
     }
 
     /**
+     * @param $tag
+     * @return mixed
+     */
+    public function allPostOfTag($tag)
+    {
+        return $this->posts->allPostOfTag($tag);
+    }
+
+    /**
      * @param StorePostRequest $request
      * @return Collection|bool
      */
@@ -67,9 +76,31 @@ class PostsService
         }
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getPost($id)
     {
         return $this->posts->getPost($id);
     }
 
+    /**
+     * retun post using post id
+     * @param $id
+     * @return mixed
+     */
+    public function getPostFromId($id)
+    {
+        return $this->posts->getPostFromId($id);
+    }
+
+    /**
+     * @param $request
+     * @param $post
+     */
+    public function update($request, $post)
+    {
+        return $this->posts->update($request,$post);
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\User\Tag;
 
+use App\NeedKeting\Models\Tag;
+use App\NeedKeting\Services\User\Post\PostsService;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -12,15 +14,21 @@ class TagsController extends Controller
     /**
      * @var TagsService
      */
-    public $tags;
+    private $tags;
+
+    /**
+     * @var PostsService
+     */
+    private $posts;
 
     /**
      * TagsController constructor.
      * @param TagsService $tags
      */
-    public function __construct(TagsService $tags)
+    public function __construct(TagsService $tags, PostsService $posts)
     {
         $this->tags = $tags;
+        $this->posts = $posts;
     }
 
     /**
@@ -33,26 +41,6 @@ class TagsController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -62,42 +50,11 @@ class TagsController extends Controller
      */
     public function show($id)
     {
-        //
+        $tags = Tag::lists('tag_name','id');
+        
+        return view('users.tags.show',compact('tags'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     /**
      * @return mixed
@@ -106,4 +63,5 @@ class TagsController extends Controller
     {
         return $this->tags->all();
     }
+
 }

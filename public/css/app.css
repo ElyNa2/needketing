@@ -5834,7 +5834,48 @@ body {
   .register-sigin-page .oauth .ion-social-googleplus:hover {
     background-color: #dd4b39; }
 
+.nkt-header {
+  padding: 20px 0 20px 0; }
+  .nkt-header .form-control {
+    margin-top: 10px;
+    border-radius: 0; }
+
 .nkt-client-dashboard {
-  margin: 30px 0 0 0; }
+  padding: 20px 0 50px 0; }
+
+.nkt-post-list .nkt-post-owner img {
+  height: 60px;
+  width: 60px;
+  float: right;
+  margin-right: -15px; }
+
+.input-group-btn:last-child > .btn {
+  margin-top: 10px; }
+
+.nkt-post-detail {
+  padding: 10px;
+  border: 2px solid #000000;
+  background-color: #ffffff; }
+  .nkt-post-detail .btn {
+    background-color: #00AA00;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    font-size: 12px; }
+  .nkt-post-detail .nkt-post-text {
+    font-size: 13px;
+    padding-top: 7px; }
+  .nkt-post-detail .nkt-post-image {
+    float: right;
+    width: 100%; }
+
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent; }
 
 /*# sourceMappingURL=app.css.map */

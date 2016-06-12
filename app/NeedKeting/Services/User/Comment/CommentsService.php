@@ -33,6 +33,6 @@ class CommentsService
      */
     public function create($request)
     {
-        $this->comments->create($request);
+        return $this->comments->create($request);
     }
 }

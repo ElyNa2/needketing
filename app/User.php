@@ -36,6 +36,10 @@ class User extends Authenticatable
     ];
 
     /**
+     * @var array
+     */
+    protected $dates = ['last_login_at'];
+    /**
      * Each user is related witth many roles
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -89,14 +93,9 @@ class User extends Authenticatable
     /**
      * @return bool
      */
-    public function isAdmin($request)
+    public function isAdmin()
     {
         return true;
-        /*if($request['role_id'] == 2)
-        {
-            return true;
-        }
-        return false;*/
 
     }
     

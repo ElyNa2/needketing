@@ -17,51 +17,48 @@
 @section('content')
     <div class="col-lg-7 col-lg-offset-1">
         <div class="row">
+            <div>
 
-            <div class="col-lg-3"> <!-- required for floating -->
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs tabs-left"><!-- 'tabs-right' for right tabs -->
-                    <li class="active"><a href="#home" data-toggle="tab">Account</a></li>
-                    <li><a href="#profile" data-toggle="tab">Password</a></li>
-                    <li><a href="#messages" data-toggle="tab">Email Notification</a></li>
-                    <li><a href="#settings" data-toggle="tab">Web Notification</a></li>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Account </a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Password</a></li>
+                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Web Notification</a></li>
+                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Email Notification</a></li>
                 </ul>
-            </div>
 
-            <div class="col-lg-9">
-                <!-- Tab panes -->
                 <div class="tab-content">
-                    <div class="tab-pane active" id="home">
+                    <div role="tabpanel" class="tab-pane fade in active" id="home">
                         <h3>Account</h3>
                         <p>Edit Your Basic Information</p>
                         <hr>
                         {!! Form::model($user,['route'=>['user.profile.update',$user->id],'method'=>'put']) !!}
 
-                            <div class="form-group">
-                                <div class="col-lg-3">
-                                    {!! Form::label('username') !!}
-                                </div>
-                                <div class="col-lg-9">
-                                    {!! Form::text('username',null,['class'=>'form-control']) !!}
-                                </div>
+                        <div class="form-group">
+                            <div class="col-lg-3">
+                                {!! Form::label('username') !!}
                             </div>
+                            <div class="col-lg-9">
+                                {!! Form::text('username',null,['class'=>'form-control']) !!}
+                            </div>
+                        </div>
 
-                            <div class="form-group">
-                                <div class="col-lg-3">
-                                    {!! Form::label('email') !!}
-                                </div>
-                                <div class="col-lg-9">
-                                    {!! Form::email('email',null,['class'=>'form-control']) !!}
-                                </div>
+                        <div class="form-group">
+                            <div class="col-lg-3">
+                                {!! Form::label('email') !!}
                             </div>
+                            <div class="col-lg-9">
+                                {!! Form::email('email',null,['class'=>'form-control']) !!}
+                            </div>
+                        </div>
 
-                            <div class="col-lg-9 col-lg-offset-3">
-                                {!! Form::submit('Save Changes',['class'=>'btn btn-warning pull-right']) !!}
-                            </div>
+                        <div class="col-lg-9 col-lg-offset-3">
+                            {!! Form::submit('Save Changes',['class'=>'btn btn-warning pull-right']) !!}
+                        </div>
 
                         {!! Form::close() !!}
                     </div>
-                    <div class="tab-pane" id="profile">
+                    <div role="tabpanel" class="tab-pane fade" id="profile">
                         <h3>Password</h3>
                         <p>Edit Your Password</p>
                         <hr>
@@ -77,10 +74,10 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 {!! Form::label('password') !!}
                             </div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-9">
                                 {!! Form::password('password', ['class'=>'form-control']) !!}
                             </div>
                         </div>
@@ -101,12 +98,13 @@
 
                         {!! Form::close() !!}
                     </div>
-
-                    <div class="tab-pane" id="messages">Messages Tab.</div>
-                    <div class="tab-pane" id="settings">Settings Tab.</div>
-                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="messages">...</div>
+                    <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
                 </div>
+
             </div>
+
         </div>
     </div>
+
 @endsection
