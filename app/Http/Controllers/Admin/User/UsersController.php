@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\User;
 
 use App\NeedKeting\Services\Auth\User\UsersService;
-use App\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -45,11 +44,21 @@ class UsersController extends Controller
      */
     public function postLogin(Request $request)
     {
-        $user = array('email' => $request['email'], 'password' => bcrypt($request['password']));
+       // $user = array('email' => $request['email'], 'password' => bcrypt($request['password']));
+        if(Auth::attempt(['email'=> $request->email,'password'=> $request->password])){
+            return redirect(route('admin.roles.index'));
+        }
+        return redirect()->back();
 
-        $this->auth->login($user);
+        //$this->auth->login($user);
 
-        return redirect(route('admin.roles.index'));
+    }
+
+    public function getLogout()
+    {
+        Auth::logout();
+        
+        return redirect(route('admin.getLogin'));
     }
 
     /**
@@ -66,7 +75,7 @@ class UsersController extends Controller
      * @param $id
      * @return mixed
      */
-    public function confirm($id)
+    public function confirm(Requests\Admin\Admin\DeleteAdminRequest $request, $id)
     {
         $user = $this->users->getFromId($id);
 
@@ -77,7 +86,7 @@ class UsersController extends Controller
      * @param $id
      * @return mixed
      */
-    public function destroy($id)
+    public function destroy(Requests\Admin\Admin\DeleteAdminRequest $request,$id)
     {
         $user = $this->users->getFromId($id);
         

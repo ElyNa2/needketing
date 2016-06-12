@@ -11,7 +11,8 @@
         "lucadegasperi/oauth2-server-laravel": "^5.1",
         "monolog/monolog": "^1.19",
         "laravel/socialite": "^2.0",
-        "guzzlehttp/guzzle": "~5.3|~6.0"
+        "guzzlehttp/guzzle": "~5.3|~6.0",
+        "tom-lingham/searchy" : "2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

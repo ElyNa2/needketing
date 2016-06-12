@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'Illuminate\Auth\Events\Login' => [
             'App\Listeners\UpdateLastLoginOnLogin@handle',
         ],
+        'App\Events\PostWasCreated' => [
+            'App\Listeners\PostCreatedLogInfo',
+        ],
     ];
 
     /**

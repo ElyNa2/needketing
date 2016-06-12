@@ -22,7 +22,7 @@
                                     </span>
                 </a>
                 <ul class="dropdown-menu dropdown-user text-center">
-                    <li><a href="{{ URL::to('logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="{{ route('admin.getLogout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>

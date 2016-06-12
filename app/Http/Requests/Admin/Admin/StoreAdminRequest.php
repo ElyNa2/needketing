@@ -25,7 +25,7 @@ class StoreAdminRequest extends Request
     {
         return [
             'email' => 'required|email',
-            'password' => 'required|confirm',
+            'password' => 'required_with:password_confirmation|confirmed',
             'username' => 'required',
             'name' => 'required'
         ];

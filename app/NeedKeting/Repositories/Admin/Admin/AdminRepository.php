@@ -36,8 +36,6 @@ class AdminRepository{
     {
         $input = $request->all();
 
-        $input['password'] = bcrypt($request['password']);
-
         $input['role_id'] = 2;
 
         if($request->hasFile('image'))
@@ -61,8 +59,6 @@ class AdminRepository{
     public function update($request, $user)
     {
         $input = $request->all();
-
-        $input['password'] = bcrypt($request['password']);
 
         $input['role_id'] = 2;
 

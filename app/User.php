@@ -90,12 +90,17 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\NeedKeting\Models\SiteInfo');
     }
+
     /**
      * @return bool
      */
-    public function isAdmin()
+    public function isAdmin($role_id)
     {
-        return true;
+        if( $role_id == 2)
+        {
+            return true;
+        }
+        return false;
 
     }
     

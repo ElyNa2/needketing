@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin\Admin;
 
 use App\Http\Requests\Request;
 
-class UpdateAdminRequest extends Request
+class DeleteAdminRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,17 @@ class UpdateAdminRequest extends Request
      */
     public function authorize()
     {
+        if ($this->route('users') == auth()->user()->id){
+            return false;
+        }
         return true;
+    }
+
+    public function forbiddenResponse()
+    {
+        return redirect()->back()->withErrors([
+            'error' => 'You are not able to delete youself',
+        ]);
     }
 
     /**
@@ -24,10 +34,7 @@ class UpdateAdminRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'username' => 'required',
-            'name' => 'required'
-
+            //
         ];
     }
 }

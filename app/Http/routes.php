@@ -55,8 +55,9 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('report/posts',['as'=>'report.posts','uses'=>'User\Post\ReportPostController@create']);
     
-    Route::get('admin/login',['as'=>'admin.getlogin','uses'=>'Admin\User\UsersController@getLogin']);
-    Route::post('admin/login',['as'=>'admin.postlogin','uses'=>'Admin\User\UsersController@postLogin']);
+    Route::get('admin/login',['as'=>'admin.getLogin','uses'=>'Admin\User\UsersController@getLogin']);
+    Route::post('admin/login',['as'=>'admin.postLogin','uses'=>'Admin\User\UsersController@postLogin']);
+    Route::get('admin/logout',['as'=>'admin.getLogout','uses'=>'Admin\User\UsersController@getLogout']);
     
 
     Route::group(['middleware' => ['admin']], function () {

@@ -15,10 +15,11 @@ class AdminMiddleWare
      */
     public function handle($request, Closure $next)
     {
-        if($request->user() && $request->user()->isAdmin($request->user()))
+        if($request->user() && $request->user()->isAdmin($request->user()->role_id))
         {
             return $next($request);
         }
-        return redirect('admin/login');
+        
+        return redirect('admin/login')->with('status','Login is not possible');
     }
 }
